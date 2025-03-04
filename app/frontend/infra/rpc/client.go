@@ -76,11 +76,11 @@ func initProductClient() {
 					return &product.ListProductsResp{
 						Products: []*product.Product{
 							{
-								Price:       6.6,
+								Price:       10000,
 								Id:          3,
-								Picture:     "/static/image/t-shirt.jpeg",
-								Name:        "T-Shirt",
-								Description: "CloudWeGo T-Shirt",
+								Picture:     "/static/image/logo.jpg",
+								Name:        "product服务未启动",
+								Description: "product服务未启动",
 							},
 						},
 					}, nil

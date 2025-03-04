@@ -1,8 +1,73 @@
 {{define "about"}}
 {{template "header" .}}
-  <div>
-    <!-- <img src="/static/image/logo.jpg" alt="CloudWeGo" class="clo-lg-2 col-md-3 col-sm-4"/> -->
-    <p>This is community a diven project.</p>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">字节跳动青训营后端大项目--抖音商城</h1>
+
+    <div class="card p-4 shadow">
+        <h2>概述</h2>
+        <p>本项目基于 <strong>Hertz + Kitex</strong> 构建，采用 <strong>Consul</strong> 进行服务发现，<strong>MySQL</strong> 作为数据库，<strong>Redis</strong> 进行缓存，使用 <strong>NATS</strong> 作为消息队列，并引入 <strong>Prometheus、Grafana、Jaeger、Loki、Promtail</strong> 进行监控和日志管理。</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card p-3 h-100 shadow">
+                <h3>后端框架</h3>
+                <ul>
+                    <li><strong>Hertz</strong> - 高性能 HTTP 框架</li>
+                    <li><strong>Kitex</strong> - 高性能 RPC 框架</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3 h-100 shadow">
+                <h3>服务发现 & 负载均衡</h3>
+                <ul>
+                    <li><strong>Consul</strong> - 微服务注册、发现、健康检查</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card p-3 h-100 shadow">
+                <h3>数据库 & 缓存</h3>
+                <ul>
+                    <li><strong>MySQL</strong> - 关系型数据库</li>
+                    <li><strong>Redis</strong> - 高性能缓存</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3 h-100 shadow">
+                <h3>消息队列</h3>
+                <ul>
+                    <li><strong>NATS</strong> - 轻量级消息队列</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card p-3 h-100 shadow">
+                <h3>监控 & 可观测性</h3>
+                <ul>
+                    <li><strong>Prometheus</strong> - 监控系统</li>
+                    <li><strong>Grafana</strong> - 数据可视化</li>
+                    <li><strong>Jaeger</strong> - 链路追踪</li>
+                    <li><strong>Loki</strong> - 日志存储</li>
+                    <li><strong>Promtail</strong> - 日志收集</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-4 mt-4 shadow">
+        <h3>联系方式</h3>
+        <p>📧 <strong>Email</strong>: kiroyi@gmail.com</p>
+        <p>📘 <strong>GitHub</strong>: <a href="https://github.com/kiroyi/tiktok-mall" target="_blank">项目地址</a></p>
+    </div>
   </div>
 {{template "footer"}}
 {{end}}

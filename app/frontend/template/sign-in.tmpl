@@ -1,6 +1,6 @@
 {{define "sign-in"}}
 {{template "header" .}}
-  <div class="row justify-content-center">
+  <!-- <div class="row justify-content-center">
     <div class="col-4">
     <form method="post" action="/auth/login?next={{.Next}}">
       <div class="mb-3">
@@ -17,6 +17,48 @@
       <button type="submit" class="btn btn-primary">Sign In</button>
     </form>
     </div>
-  </div>
+  </div> -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex border rounded shadow p-4">
+                <!-- 左侧二维码区域 -->
+                <div class="col-md-5 text-center">
+                    <h5>扫码登录</h5>
+                    <div class="p-3 rounded">
+                        <img src="/static/image/erweima.png" alt="扫码登录" class="img-fluid" style="max-width: 200px;">
+                    </div>
+                    <p class="mt-2">打开「抖音APP」点击左上角<i class="fa-solid fa-bars mx-1"></i>进行扫一扫</p>
+                </div>
+
+                <!-- 中间分割线 -->
+                <div class="vr mx-4"></div>
+
+                <!-- 右侧登录表单 -->
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center mb-4">
+                      <h5>密码登录</h5>
+                      <div class="vr mx-4" style="height: 25px;"></div>
+                      <h5>验证码登录</h5>
+                    </div>
+                    <form method="post" action="/auth/login?next={{.Next}}">
+                        <div class="mb-4">
+                            <!-- <label for="email" class="form-label">Email {{template "required"}}</label> -->
+                            <input type="email" class="form-control" id="email"  placeholder="账号名/手机号/邮箱" name="email" style="height: 50px;">
+                        </div>
+                        <div class="mb-4">
+                            <!-- <label for="password" class="form-label">Password {{template "required"}}</label> -->
+                            <input type="password" class="form-control" id="password" placeholder="密码" name="password" style="height: 50px;">
+                        </div>
+                        <div class="mb-4">
+                          没有账号？点击此处<a href="/sign-up">免费注册</a>。
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">登录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {{template "footer" .}}
 {{end}}

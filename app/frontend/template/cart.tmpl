@@ -27,8 +27,12 @@
                 </div>
             </div>
         {{else}}
-            <h1 class="text-center text-danger">Your Cart is empty</h1>
-            <div class="text-center"><a href="/">Shop Hot Sale</a></div>
+            <div class="row justify-content-center">
+                <img class="text-center mb-3" src="https://gw.alicdn.com/imgextra/i1/O1CN010vvC0t1FDylfCLcih_!!6000000000454-2-tps-180-180.png" style="max-width: 150px;">
+                <h4 class="text-center mb-3">暂无商品</h2>
+                <h5 class="text-center mb-3" style="color: #777;">挑选38节好物，装购物车吧</h3>
+                <a href="/" class="btn btn-danger" style="width: 100px; text-align: center;">去购物</a>
+            </div>
         {{ end }}
     </div>
     {{ template "footer" . }}
