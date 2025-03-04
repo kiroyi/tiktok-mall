@@ -70,8 +70,9 @@
                 <a class="nav-link" href="/about" >关于</a>
                 </li>
             </ul>
-            <form role="search" class="d-flex">
-                <input id="searchInput" class="form-control me-2" type="search" placeholder="搜索" aria-label="Search">
+            <form class="d-flex ms-auto" role="search" action="/search" method="get">
+                <input id="searchInput" class="form-control me-2" type="search" name="q" placeholder="搜索"
+                aria-label="Search" value="{{ .q }}">
                 <button class="btn btn-outline-success" type="submit" style="white-space: nowrap;">搜索</button>
             </form>
             {{ template "cart-num" . }}
@@ -80,13 +81,13 @@
             <div class="dropdown">
                 <div class="ms-3 dropdown-toggle" data-bs-toggle="dropdown">
                     <i class="fa-solid fa-user fa-lg"></i>
-                    <span>Hello</span>
+                    <span>你好</span>
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/order">Order Center</a></li>
+                    <li><a class="dropdown-item" href="/order">订单中心</a></li>
                     <li>
                         <form action="/auth/logout" method="post">
-                            <button class="dropdown-item" type="submit">Logout</button>
+                            <button class="dropdown-item" type="submit">退出</button>
                         </form>
                     </li>
                 </ul>

@@ -1,7 +1,7 @@
 {{ define "product" }}
     {{ template "header" . }}
-    <div class="row">
-        <div class="card border-0" style="width: 100%;">
+    <div class="row" style="height: 100vh;">
+        <div class="card border-0 mx-auto" style="width: 80%; height: 60%;">
             <div class="card-body row">
                 <div id="productPicture" class="carousel slide col-lg-6 col-sm-12">
                     <div class="carousel-indicators">
@@ -39,12 +39,12 @@
                     <form action="/cart" method="post">
                         <h5 class="card-title">{{ .item.Name }}</h5>
                         <p class="card-text">{{ .item.Description }}</p>
-                        <p class="card-text">${{ .item.Price }}</p>
+                        <p class="card-text">￥{{ .item.Price }}</p>
                         <input type="hidden" value="{{ .item.Id }}" name="productId">
                         <label for="productNum">数量：</label>
                         <input type="number" class="form-control mt-3" id="productNum" name="productNum" value="1"
                                min="1"/>
-                        <input type="submit" class="btn btn-primary mt-3" value="Add to Cart">
+                        <input type="submit" class="btn btn-primary mt-3" value="加入购物车">
                     </form>
                 </div>
             </div>

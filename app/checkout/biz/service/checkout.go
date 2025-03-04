@@ -114,11 +114,11 @@ func (s *CheckoutService) Run(req *checkout.CheckoutReq) (resp *checkout.Checkou
 	}
 
 	data, _ := proto.Marshal(&email.EmailReq{
-		From:        "from@example.com",
+		From:        "dymall@douyin.com",
 		To:          req.Email,
 		ContentType: "text/plain",
-		Subject:     "You just created an order in CloudWeGo shop",
-		Content:     "You just created an order in CloudWeGo shop",
+		Subject:     "订单信息",
+		Content:     "您刚刚在抖音商城创建了一个订单",
 	})
 
 	msg := &nats.Msg{Subject: "email", Data: data, Header: make(nats.Header)}
