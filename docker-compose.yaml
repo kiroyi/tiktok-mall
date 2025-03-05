@@ -68,165 +68,165 @@ services:
       - ./deploy/config/promtail.yml:/etc/promtail/config.yml
       - ./app/frontend/log:/logs/frontend
     command: -config.file=/etc/promtail/config.yml
-  frontend:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.frontend
-    # image: "gomall-frontend:latest"
-    ports:
-      - "8080:8080"
-    environment:
-      - OTEL_EXPORTER_OTLP_ENDPOINT=http://120.0.0.1:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - SESSION_SECRET=ASDQWEZXTT
-      - GO_ENV=dev
-    depends_on:
-      - consul
-      - redis
-    volumes:
-      - ./app/frontend/conf/dev:/opt/gomall/frontend/conf/dev
-  product:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=product
-    # image: "gomall-product:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/product/conf/dev:/opt/gomall/product/conf/dev
-  user:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=user
-    # image: "gomall-user:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/user/conf/dev:/opt/gomall/user/conf/dev
-  cart:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=cart
-    # image: "gomall-cart:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/cart/conf/dev:/opt/gomall/cart/conf/dev
-  checkout:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=checkout
-    # image: "gomall-checkout:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/checkout/conf/dev:/opt/gomall/checkout/conf/dev
-  email:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=email
-    # image: "gomall-email:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/email/conf/dev:/opt/gomall/email/conf/dev
-  order:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=order
-    # image: "gomall-order:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/order/conf/dev:/opt/gomall/order/conf/dev
-  payment:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.svc
-      args:
-        - SVC=payment
-    # image: "gomall-payment:latest"
-    environment:
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_HOST=mysql
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
-      - OTEL_EXPORTER_OTLP_INSECURE=true
-      - GO_ENV=dev
-    depends_on:
-      consul:
-        condition: service_started
-      mysql:
-        condition: service_healthy
-    volumes:
-      - ./app/payment/conf/dev:/opt/gomall/payment/conf/dev
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.frontend
+  #   # image: "tiktok-mall-frontend:latest"
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     - OTEL_EXPORTER_OTLP_ENDPOINT=http://120.0.0.1:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - SESSION_SECRET=ASDQWEZXTT
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     - consul
+  #     - redis
+  #   volumes:
+  #     - ./app/frontend/conf/dev:/opt/gomall/frontend/conf/dev
+  # product:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=product
+  #   # image: "tiktok-mall-product:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/product/conf/dev:/opt/gomall/product/conf/dev
+  # user:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=user
+  #   # image: "tiktok-mall-user:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/user/conf/dev:/opt/gomall/user/conf/dev
+  # cart:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=cart
+  #   # image: "tiktok-mall-cart:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/cart/conf/dev:/opt/gomall/cart/conf/dev
+  # checkout:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=checkout
+  #   # image: "tiktok-mall-checkout:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/checkout/conf/dev:/opt/gomall/checkout/conf/dev
+  # email:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=email
+  #   # image: "tiktok-mall-email:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/email/conf/dev:/opt/gomall/email/conf/dev
+  # order:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=order
+  #   # image: "tiktok-mall-order:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/order/conf/dev:/opt/gomall/order/conf/dev
+  # payment:
+  #   build:
+  #     context: .
+  #     dockerfile: ./deploy/Dockerfile.svc
+  #     args:
+  #       - SVC=payment
+  #   # image: "tiktok-mall-payment:latest"
+  #   environment:
+  #     - MYSQL_USER=root
+  #     - MYSQL_PASSWORD=root
+  #     - MYSQL_HOST=mysql
+  #     - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=jaeger-all-in-one:4317
+  #     - OTEL_EXPORTER_OTLP_INSECURE=true
+  #     - GO_ENV=dev
+  #   depends_on:
+  #     consul:
+  #       condition: service_started
+  #     mysql:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./app/payment/conf/dev:/opt/gomall/payment/conf/dev

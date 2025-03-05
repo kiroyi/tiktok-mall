@@ -1,7 +1,7 @@
 hertz:
   service: "frontend"
   address: ":8080"
-  metrics_port: "10.202.113.151:8090"
+  metrics_port: "10.202.158.7:8090"
   enable_pprof: true
   enable_gzip: true
   enable_access_log: true
